@@ -1,0 +1,23 @@
+{
+  "name": "what-duke-dining",
+  "version": "1.0.0",
+  "description": "Displays a random image when linked in a comment, Duke dining venue themed",
+  "main": "index.js",
+  "dependencies": {
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/williamyeny/what-duke-dining.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/williamyeny/what-duke-dining/issues"
+  },
+  "homepage": "https://github.com/williamyeny/what-duke-dining#readme"
+}
