@@ -1,4 +1,5 @@
 //https://kennbrodhagen.net/2016/01/31/how-to-return-html-from-aws-api-gateway-lambda/
+var request = require('request');
 
 exports.handler = function(event, context) {
   //maybe make the below 1 object instead of 2 arrays?
@@ -56,6 +57,23 @@ exports.handler = function(event, context) {
   var title = "You are: " + names[r];
   var image = images[r];
   var html = '<!DOCTYPE html><html><head><meta property="og:image" content="' + image + '" /><meta content=article property=og:type><meta property="og:title" content="' + title + '" /> <meta property="og:description" content="Link me in the comments to find out which dining venue you are!" /><style>body {background-color:black;}h1 {color:white; font-family:sans-serif;text-align:center;margin-top:150px;}</style></head><body><h1>Link me on Facebook to find out which Duke dining venue you are!</h1></body></html>';
+
+
+     var options = {
+       url: 'https://graph.facebook.com/?id=https://ko7u9bit88.execute-api.us-east-1.amazonaws.com/prod&scrape=true',
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       json: {}
+     };
+
+     request(options, function(err, res, body) {
+       if (res && (res.statusCode === 200 || res.statusCode === 201)) {
+         console.log(body);
+       }
+     });
+
 
   context.succeed(html);
 };
